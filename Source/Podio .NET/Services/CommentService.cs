@@ -44,7 +44,7 @@ namespace PodioAPI.Services
         /// <param name="type"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<Comment> GetCommentsOnObject(string type, int id)
+        public List<Comment> GetCommentsOnObject(string type, long id)
         {
             string url = string.Format("/comment/{0}/{1}/", type, id);
             return _podio.Get<List<Comment>>(url);
@@ -74,7 +74,7 @@ namespace PodioAPI.Services
         /// </param>
         /// <param name="hook">todo: describe hook parameter on AddCommentToObject</param>
         /// <returns></returns>
-        public int AddCommentToObject(string type, int id, string text, string externalId = null,
+        public int AddCommentToObject(string type, long id, string text, string externalId = null,
             List<int> fileIds = null, string embedUrl = null, int? embedId = null, bool alertInvite = false,
             bool silent = false, bool hook = true)
         {
@@ -106,7 +106,7 @@ namespace PodioAPI.Services
         /// </param>
         /// <param name="hook">todo: describe hook parameter on AddCommentToObject</param>
         /// <returns></returns>
-        public int AddCommentToObject(string type, int id, CommentCreateUpdateRequest comment, bool alertInvite = false,
+        public int AddCommentToObject(string type, long id, CommentCreateUpdateRequest comment, bool alertInvite = false,
             bool silent = false, bool hook = true)
         {
             string url = string.Format("/comment/{0}/{1}/", type, id);
